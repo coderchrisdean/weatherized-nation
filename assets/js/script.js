@@ -4,9 +4,9 @@
 var weatherWebsiteApi = "https://api.openweathermap.org/data/2.5/forecast";
 var latQuery = "?lat=";
 var lonQuery = "&lon=";
-var searchBtn = document.querySelector("#search");
-var searchText = document.querySelector("#search-text");
-var city = searchText.value
+var searchBtn = document.getElementById("search");
+var searchText = document.getElementById("search-text");
+var city = searchText.text
 
 // const city = searchText.getElementById('search-text');
 
@@ -50,4 +50,4 @@ function getWeatherData(city) {
   }
   
 // add event listener to listen for button clicks
-searchBtn.addEventListener('click', console.log("Test:" + searchText))
+searchBtn.addEventListener('click', console.log("Test:" + city))
