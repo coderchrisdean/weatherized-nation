@@ -1,4 +1,14 @@
 # 06 Server-Side APIs: Weather Dashboard
+<h2>Weatherizer</h2><hr>
+This is an incomplete project for Week 6 API request homework assignment.
+
+This APP allows you to get a 5-day weather forecast for your upcoming vacaton!  Will save your most recent search for easy access the next time you launch the app!
+
+<h2>GitHub Repository</h2><hr>
+URL: <a href="https://github.com/coderchrisdean/weatherizer/">https://github.com/coderchrisdean/weatherizer/</a>
+<h2>Llink to Deployed Application</h2>
+URL: <a href="">https://coderchrisdean.github.io/weatherizer/</a>
+
 
 ## Your Task
 
