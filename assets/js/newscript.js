@@ -1,41 +1,14 @@
-// declare variables
-
-//  api_key:  bd0386f2c4d5d21c6568628bb9a748f7
-//  url: https://openweathermap.org/forecast5
-
-//    <<< Weather Information >>>
-//       Fetch from API to retrieve information
-//         City
-//         Date & Time
-//         Icon/Emoji for Weather Visual
-//         Temp
-//         Humidity
-//         Wind Speed
-//      5-Day Forecast
-//         Date
-//         Icon
-//         Temperature
-//         Wind Speed
-//         Humidity
-//      Recent Search History
-//          Include City Name in Buttons
-
-//--------------- variables ---------------
 // variables
 var apiKey = "d8b2e3b11771f6cb21a582b88a348dd7";
-console.log (apiKey);
-var city = document.getElementById("#city-search");
-console.log (city);
+var citySearch = document.getElementById("city-search");
 var url = "https://api.openweathermap.org/data/2.5/forecast?q=";
-console.log (url);
-var combined = `${url}${city}&appid=${apiKey}&units=metric`
-console.log (combined);
+
 // function to get weather data
 function getWeather() {
-  var city = city.value;
-  fetch(combined)
-    .then((response) => response.json())
-    .then((data) => {
+  var city = citySearch.value;
+  fetch(`${url}${city}&appid=${apiKey}&units=metric`)
+    .then(response => response.json())
+    .then(data => {
       // extract relevant data from response
       var cityName = data.city.name;
       var currentDate = new Date(data.list[0].dt * 1000).toDateString();
@@ -60,8 +33,7 @@ function getWeather() {
         </div>
       `;
       // add current weather section to HTML
-      document.querySelector("#current-weather-container").innerHTML =
-        currentWeather;
+      document.querySelector("#current-weather-container").innerHTML = currentWeather;
 
       // build 5-day forecast section
       var forecastWeather = `<h2>5-Day Forecast</h2><ul class="forecast-five-day">`;
@@ -104,10 +76,10 @@ function getWeather() {
       }
       searchHistoryHTML += `</div>`;
       // add search history section to HTML
-      document.querySelector("#search-history-container").innerHTML =
-        searchHistoryHTML;
+      document.querySelector("#search-history-container").innerHTML = searchHistoryHTML;
+
     })
-    .catch((error) => {
+    .catch(error => {
       console.log(error);
       alert("City not found. Please try again.");
     });

@@ -7,7 +7,7 @@ This APP allows you to get a 5-day weather forecast for your upcoming vacaton!  
 <h2>GitHub Repository</h2><hr>
 URL: <a href="https://github.com/coderchrisdean/weatherizer/">https://github.com/coderchrisdean/weatherizer/</a>
 <h2>Llink to Deployed Application</h2>
-URL: <a href="">https://coderchrisdean.github.io/weatherizer/</a>
+URL: <a href="https://coderchrisdean.github.io/weatherizer/">https://coderchrisdean.github.io/weatherizer/</a>
 
 
 ## Your Task

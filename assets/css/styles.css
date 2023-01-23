@@ -1,0 +1,131 @@
+/*  import bootstap css */
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
+:root {
+  --main-color: #4caf50;
+  --secondary-color: #8bc34a;
+  --third-color: #cddc39;
+  --fourth-color: #ffeb3b;
+  --fifth-color: #ffc107;
+  --bg-color: black;
+
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: var(--bg-color);
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--bg-color);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--main-color);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    #search-button {
+        margin: 20px;
+        background-color: var(--main-color);
+        padding: 20px;
+        border-radius: 10px;
+    }
+  
+
+  #current-conditions {
+    margin: 20px;
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  #city-name {
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  #date {
+    font-size: 20px;
+  }
+
+  #weaher-icon {
+    width: 100px;
+    height: 100px;
+    margin: -20px;
+  }
+
+  #forecast {
+    margin: 20px;
+    background-color: var(--third-color);
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  #forecast .card {
+    margin: 20px;
+    background-color: var(--fourth-color);
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  #forecast .card:hover {
+    background-color: var(--fifth-color);
+  }
+
+#city-search {
+    margin: 5px;
+    background-color: white;
+    padding: 5px;
+}
+
+#search-button {
+    width: 100px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  #search-button:hover {
+    background-color: #3e8e41;
+  }
+
+#humidity,
+#temperature,
+#wind-speed {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+#humidity {
+  color: #4CAF50;
+}
+
+#temperature {
+  color: #F44336;
+}
+
+#wind-speed {
+  color: #2196F3;
+}
