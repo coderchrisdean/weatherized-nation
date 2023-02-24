@@ -1,24 +1,51 @@
-# 06 Server-Side APIs: Weather Dashboard
-<h2>Weatherizer</h2><hr>
-This is an incomplete project for Week 6 API request homework assignment.
+# Weatherizer
 
-This APP allows you to get a 5-day weather forecast for your upcoming vacaton!  Will save your most recent search for easy access the next time you launch the app!
+## Description
 
-<h2>GitHub Repository</h2><hr>
+Weatherizer is a the week-six assignment for UC Berkeley Coding Bootcamp. The Weatherizer weather dashboard that allows you to search for a city and get a 5-day weather forecast.  It will save your most recent search for easy access the next time you launch the app.  The Weatherizer uses the OpenWeather API to retrieve weather data.  It also uses `localStorage` to store persistent data.
+
+<!-- <h2>GitHub Repository</h2><hr>
 URL: <a href="https://github.com/coderchrisdean/weatherizer/">https://github.com/coderchrisdean/weatherizer/</a>
-<h2>Llink to Deployed Application</h2>
-URL: <a href="https://coderchrisdean.github.io/weatherizer/">https://coderchrisdean.github.io/weatherizer/</a>
+<h2>Link to Deployed Application</h2>
+URL: <a href="https://coderchrisdean.github.io/weatherizer/">https://coderchrisdean.github.io/weatherizer/</a> -->
+
+## Table of Contents
+ * [Description](#description)
+ * [Usage](#usage)
+ * [License](#license)
+ * [Screenshot](#screenshot)
+ * [About](#about)
+ * [GitHub Repository](#github-repository)
+ * [Link to Deployed Application](#link-to-deployed-application)
+
+## Usage
+
+To view the weather forecast for a specific city, navigate to the deployed application and enter the name of the city in the search bar. The weather dashboard will display the current weather conditions and a 5-day forecast for the city. The city name will also be added to the search history. If you want to view the weather conditions for a previously searched city, simply click on the city name in the search history, and the dashboard will update to show the current weather and 5-day forecast for that city.
+
+## License
+
+None
+
+## Screenshot
+
+![Weatherizer Screenshot](./assets/weatherizer-screenshot.png)
+
+## About
+
+This project was created by Christopher Dean.  I can be reached at coderchrisdean@gmail.com
+
+## GitHub Repository
+
+https://github.com/coderchrisdean/weatherizer/
+
+## Link to Deployed Application
+
+https://coderchrisdean.github.io/weatherizer/
 
 
-## Your Task
+<!-- **Hint**: Using the 5 Day Weather Forecast API, you'll notice that you will need to pass in coordinates instead of just a city name. Using the OpenWeatherMap APIs, how could we retrieve geographical coordinates given a city name? -->
 
-Third-party APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. Developers are often tasked with retrieving data from another application's API and using it in the context of their own. Your challenge is to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
-
-Use the [5 Day Weather Forecast](https://openweathermap.org/forecast5) to retrieve weather data for cities. The base URL should look like the following: `https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}`. After registering for a new API key, you may need to wait up to 2 hours for that API key to activate.
-
-**Hint**: Using the 5 Day Weather Forecast API, you'll notice that you will need to pass in coordinates instead of just a city name. Using the OpenWeatherMap APIs, how could we retrieve geographical coordinates given a city name?
-
-You will use `localStorage` to store any persistent data. For more information on how to work with the OpenWeather API, refer to the [Full-Stack Blog on how to use API keys](https://coding-boot-camp.github.io/full-stack/apis/how-to-use-api-keys).
+<!-- You will use `localStorage` to store any persistent data. For more information on how to work with the OpenWeather API, refer to the [Full-Stack Blog on how to use API keys](https://coding-boot-camp.github.io/full-stack/apis/how-to-use-api-keys). -->
 
 ## User Story
 
@@ -42,26 +69,11 @@ WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
 ```
 
-## Mock-Up
-
-The following image shows the web application's appearance and functionality:
-
-![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions for Atlanta.](./Assets/06-server-side-apis-homework-demo.png)
+![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions for Atlanta.](./assets/06-server-side-apis-homework-demo.png)
 
 ## Grading Requirements
 
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
-
 This Challenge is graded based on the following criteria: 
-
 ### Technical Acceptance Criteria: 40%
 
 * Satisfies all of the above acceptance criteria plus the following:
