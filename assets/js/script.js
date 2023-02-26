@@ -1,3 +1,14 @@
+//icons
+var tempIcon = "🌡️";
+var humidityIcon = "💧";
+var windIcon = "💨";
+var uvIcon = "☀️";
+
+// global variables
+var searchButton = document.getElementById("search"); // search button
+var searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || []; // add city to search history
+var citySearch = document.querySelector("#city"); // get city from input field
+
 // function to get weather data and store in local storage
 function getWeather(cityName) {
   //variables for weather
