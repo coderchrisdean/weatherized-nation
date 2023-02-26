@@ -10,6 +10,7 @@
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="./assets/js/script.js"></script>
   </head>
   <body>
     <div class="container">
@@ -29,21 +30,21 @@
                 <h3>Search for a City:</h3>
                 <div class="form-group">
                   <input
-                    id="search-text"
+                    id="city"
                     type="text"
-                    name="city"
+                    name="city-search"
                     class="form-control"
                     placeholder="Los Angeles"
                   />
                 </div>
-                <button id="submit" type="submit" class="btn btn-primary w-100">
+                <button id="search" type="submit" class="btn btn-primary w-100">
                   Search
                 </button>
                 <hr class="d-block d-md-none" />
                 <!-- Search History Loaded from Local Storage -->
                 <div id="cityButtons">
                   <button
-                    id="city-search"
+                    id="city-button-1"
                     type="button"
                     class="btn btn-secondary w-100"
                     placeholder="New York"
@@ -61,11 +62,7 @@
                 <div class="container">
                   <div class="card">
                     <div class="card-body" id="main-weather">
-                      <h2 class="card-title">City Name</h2>
-                      <h3 class="text-muted card-subtitle mb-2">Date</h3>
-                      <p class="card-text">Temp</p>
-                      <p class="card-text">Wind</p>
-                      <p class="card-text">Humidity</p>
+                      <!-- Weather will be rendered here -->
                     </div>
                   </div>
                 </div>

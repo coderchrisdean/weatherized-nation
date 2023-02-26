@@ -1,20 +1,28 @@
-// variables
-var cityButtonsContainer = document.getElementById("cityButtons"); // query selector for city buttons container
-var cityList = JSON.parse(localStorage.getItem("cities")) || []; // get cities from local storage or set to empty array
-var apiKey = "d8b2e3b11771f6cb21a582b88a348dd7"; // api key to get weather data
-var citySearch = document.getElementById("city-search"); // api key to get weather
-var url = "https://api.openweathermap.org/data/2.5/forecast?q="; // url to get weather data
+//icons
+var tempIcon = "🌡️";
+var humidityIcon = "💧";
+var windIcon = "💨";
+var uvIcon = "☀️";
+
+// global variables
+var searchButton = document.getElementById("search"); // search button
 var searchHistory = localStorage.getItem("searchHistory") || "[]"; // add city to search history
+var citySearch = document.querySelector("#city"); // get city from input field
+
+
+
 
 // function to get stored city data and render on page load
 function renderCityButtons() {
- // iterate over city list and create buttons for each city
+  let cityButtonsContainer = document.getElementById("cityButtons"); // query selector for city buttons container
+  let cityList = JSON.parse(localStorage.getItem("searchHistory")) || []; // get cities from local storage or set to empty array
+  // iterate over city list and create buttons for each city
   for (var i = 0; i < cityList.length; i++) {
     let newCityButton = document.createElement("button");
     // set button id and class
-    newCityButton.id = "city-search";
+    newCityButton.id = `city-button-${i}`;
     newCityButton.classList.add("btn", "btn-secondary", "w-100");
-    // set button text and placeholder attributes
+    // set button text and placeholder
     newCityButton.innerText = cityList[i];
     newCityButton.placeholder = cityList[i];
     // append button to city buttons container
@@ -22,88 +30,66 @@ function renderCityButtons() {
   }
 }
 
+// function to get weather data and store in local storage
+function getWeather(cityName) {
+  //variables for weather
+  var apiKey = "d8b2e3b11771f6cb21a582b88a348dd7"; // api key to get weather data
 
-
-// function to get weather data
-function getWeather() {
-  var city = citySearch.value;
-  fetch(`${url}${city}&appid=${apiKey}&units=metric`)
+  var url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=metric`; // url to get weather data
+  fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      // extract relevant data from response
-      var cityName = data.city.name;
-      var currentDate = new Date(data.list[0].dt * 1000).toDateString();
-      var currentIcon = data.list[0].weather[0].icon;
-      var currentTemp = data.list[0].main.temp;
-      var currentHumidity = data.list[0].main.humidity;
-      var currentWindSpeed = data.list[0].wind.speed;
-
-      // dynamically build current weather section
-      var currentWeather = `
-        <div id="current-weather">
-          <h2>Current Weather in ${cityName}</h2>
-          <div class="date-time">
-            <p>${currentDate}</p>
-          </div>
-          <div class="weather-conditions">
-         <img src="http://openweathermap.org/img/wn/${currentIcon}@2x.png" id="current-weather-icon">
-            <p>Temperature: ${currentTemp}&#8451;</p>
-            <p>Humidity: ${currentHumidity}%</p>
-            <p>Wind Speed: ${currentWindSpeed} m/s</p>
-          </div>
-        </div>
-      `;
-      // add current weather section to HTML
-      document.querySelector("#current-weather-container").innerHTML =
-        currentWeather;
-
-      // build 5-day forecast section
-      var forecastWeather = `<h2>5-Day Forecast</h2><ul class="forecast-five-day">`;
-      for (var i = 0; i < data.list.length; i++) {
-        var forecastDate = new Date(data.list[i].dt * 1000).toDateString();
-        var forecastIcon = data.list[i].weather[0].icon;
-        var forecastTemp = data.list[i].main.temp;
-        var forecastHumidity = data.list[i].main.humidity;
-        var forecastWindSpeed = data.list[i].wind.speed;
-        forecastWeather += `
-          <li>
-            <p>${forecastDate}</p>
-            <img src="http://openweathermap.org/img/wn/${forecastIcon}@2x.png" id="forecast-weather-icon">
-
-            <p>Temperature: ${forecastTemp}&#8451;</p>
-            <p>Humidity: ${forecastHumidity}%</p>
-            <p>Wind Speed: ${forecastWindSpeed} m/s</p>
-          </li>
-        `;
+      // store the weather data to local storage
+      localStorage.setItem(cityName, JSON.stringify(data));
+      console.log("Weather data for " + cityName + " has been stored in local storage.");
+      // Render the current weather in the "main-weather" section
+      var currentWeather = data.list[0];
+      var mainWeather = document.getElementById("main-weather");
+      mainWeather.querySelector(".card-title").innerText = data.city.name;
+      mainWeather.querySelector(".card-subtitle.mb-2").innerText = currentWeather.dt_txt;
+      mainWeather.querySelector(".card-text:nth-child(1)").innerText = tempIcon + " Temperature: " + currentWeather.main.temp + "°C";
+      mainWeather.querySelector(".card-text:nth-child(2)").innerText = humidityIcon+ " Humidity: " + currentWeather.main.humidity + "%";
+      mainWeather.querySelector(".card-text:nth-child(3)").innerText = uvIcon+ " Wind Speed: " + currentWeather.wind.speed + " m/s";
+      // function to handle search button click event
+      function searchButtonClick(event) {
+        event.preventDefault();
+        // get city name from input field
+        var cityName = citySearch.value.trim();
+        // check if city name is valid
+        if (!cityName) return; // if city name is not valid, return nothing
+        // if city name is valid, get weather data for city
+        getWeather(cityName);
+        // clear input field
+        citySearch.value = "";
+          // add city to search history
+          searchHistory.push(cityName);
+          // save search history to local storage
+          localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+          // get weather data for city
+          getWeather(cityName);
+          // clear input field
+          citySearch.value = "";
       }
-      forecastWeather += `</ul>`;
-      // add 5-day forecast section to HTML
-      document.querySelector("#forecast-container").innerHTML = forecastWeather;
 
-      searchHistory = JSON.parse(searchHistory);
-      if (!searchHistory.includes(cityName)) {
-        searchHistory.push(cityName);
-        localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+
+      // Render the 5-day forecast in the "forecast" section
+      for (var i=0; i<5;i++) {
+      
+
+        var forecastWeather = data.list[i*8]; //api returns data every 3 hours, so we need to get every 8th item
+        var forecastSection = document.getElementById(`weather-${i+1}`); // div that contains the forecast for the day
+        forecastSection.querySelector(".card-title").innerText = data.city.name;
+        forecastSection.querySelector(".card-subtitle.mb-2").innerText = forecastWeather.dt_txt;
+        forecastSection.querySelector(".card-text:nth-child(1)").innerText = tempIcon + "Temperature: " + forecastWeather.main.temp + "°C";
+        forecastSection.querySelector(".card-text:nth-child(2)").innerText = humidityIcon + "Humidity: " + forecastWeather.main.humidity + "%";
+        forecastSection.querySelector(".card-text:nth-child(3)").innerText = uvIcon + "Wind Speed: " + forecastWeather.wind.speed + " m/s";
       }
-      // build search history section
-      var searchHistoryHTML = `<h2>Search History</h2><div class="search-history">`;
-      for (var i = 0; i < searchHistory.length; i++) {
-        searchHistoryHTML += `
-          <button class="searched-city-btn" onclick="getWeather('${searchHistory[i]}')">
-            ${searchHistory[i]}
-          </button>
-        `;
-      }
-      searchHistoryHTML += `</div>`;
-      // add search history section to HTML
-      document.querySelector("#search-history-container").innerHTML =
-        searchHistoryHTML;
     })
-    .catch((error) => {
-      console.log(error);
-      alert("City not found. Please try again.");
-    });
-}
+    .catch(error => console.error("Error getting weather data: " + error));
+  }
 
 // add event listener to search button
-document.querySelector("#search-button").addEventListener("click", getWeather);
+searchButton.addEventListener("click", searchButtonClick);
+
+//renderCityButtons
+renderCityButtons();
