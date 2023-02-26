@@ -4,97 +4,113 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weatherizer: Find The Forecast of Your City!</title>
-    <!-- Link to Latest Bootstrap -->
+    <title>Weatherizer: Weather Forecaster</title>
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
-    <!-- Personal Style Sheet -->
-    <!-- <link rel="stylesheet" href="./assets/css/styles.css"> -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
-    <!-- Design Layout -->
-    <header class="container text-center">
-      <h1>Weatherizer Dashboard</h1>
-    </header>
+    <div class="container">
+      <!-- Header Text -->
+      <div class="row justify-content-center">
+        <header id="header" class="col text-center">
+          <h1>Weatherizer Weather Dashboard</h1>
+        </header>
+      </div>
 
-    <main class="container">
-      <!-- 1st column  -->
-      <!-- city search -->
-      <section id="search-for-city" class="columns container">
+      <main>
         <div class="row">
-          <div class="container col">
-            <div class="col-3">
-              <div class="d-grid card bg-dark">
-                <div class="card-body text-white">
-                  <h3>Search for a City:</h3>
-                  <div class="form-group">
-                    <input
-                      id="search-text"
-                      type="text"
-                      name="city"
-                      class="form-control"
-                      placeholder="Los Angeles"
-                    />
-                  </div>
+          <!-- Left Column for Search -->
+          <aside id="search-for-city" class="col-md-4">
+            <div class="card bg-dark">
+              <div class="card-body text-white">
+                <h3>Search for a City:</h3>
+                <div class="form-group">
+                  <input
+                    id="search-text"
+                    type="text"
+                    name="city"
+                    class="form-control"
+                    placeholder="Los Angeles"
+                  />
+                </div>
+                <button id="submit" type="submit" class="btn btn-primary w-100">
+                  Search
+                </button>
+                <hr class="d-block d-md-none" />
+                <!-- Search History Loaded from Local Storage -->
+                <div id="cityButtons">
                   <button
-                    id="submit"
-                    type="submit"
-                    class="btn btn-primary w-100"
+                    id="city-search"
+                    type="button"
+                    class="btn btn-secondary w-100"
+                    placeholder="New York"
                   >
-                    Search
+                    New York
                   </button>
-                  <hr />
-                  <div class="w-100 d-none d-md-block"></div>
-                  <!-- Search History Loaded from Local Storage -->
-                  <div id="cityButtons">
-                    <button
-                      id="city-search"
-                      type="button"
-                      class="btn btn-secondary w-100"
-                      placeholder="New York"
-                    >
-                      New York
-                    </button>
-                  </div>
-                  <div class="w-100 d-none d-md-block"></div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- end column here -->
-
-      <!-- begin new column here -->
-      <!-- Searced City Card / Second Column -->
-
-      <section class="container">
-        <!-- <div class="row"> -->
-          <div class="col-8">
-            <div class="card bg-dark">
-              <div class="card-body text-white">
-                <h2 id="city">City Name</h2>
-                <p id="date">Date</p>
-                <p id="temp">Temp</p>
-                <p id="wind">Wind:</p>
-                <p id="humidity">Humidity:</p>
+          </aside>
+          <!-- Right Side -->
+          <section id="weather-container" class="col-md-8">
+            <div class="row">
+              <div class="col">
+                <div class="container">
+                  <div class="card">
+                    <div class="card-body" id="main-weather">
+                      <h2 class="card-title">City Name</h2>
+                      <h3 class="text-muted card-subtitle mb-2">Date</h3>
+                      <p class="card-text">Temp</p>
+                      <p class="card-text">Wind</p>
+                      <p class="card-text">Humidity</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
 
-        <!-- </div> -->
-      </section>
-    </main>
-
-    <footer class="container text-center">
-      <div class="row">
-        <div class="col">
-          <p>Christopher Dean | Week-Six HW Assignment</p>
+            <!-- Five-Day Forecast Cards -->
+            <section id="weather-cards" class="container col-md-8 offset-md-1">
+              <div class="row">
+                <!-- Card 1 -->
+                <div class="col-2">
+                  <div class="card">
+                    <div class="card-body" id="weather-1"></div>
+                  </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-2">
+                  <div class="card">
+                    <div class="card-body" id="weather-2"></div>
+                  </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-2">
+                  <div class="card">
+                    <div class="card-body" id="weather-3"></div>
+                  </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="col-2">
+                  <div class="card">
+                    <div class="card-body" id="weather-4"></div>
+                  </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="col-2">
+                  <div class="card">
+                    <div class="card-body" id="weather-5"></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </section>
+          <!-- End Cards -->
         </div>
-      </div>
-    </footer>
+      </main>
+    </div>
   </body>
 </html>

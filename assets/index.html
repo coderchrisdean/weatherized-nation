@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <title>Weatherizer: Find The Forecast of Your City!</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Header / Title of App -->
+      <div class="row justify-content-center">
+        <header id="header" class="col text-center">
+          <h1>Weatherizer Weather Dashboard!</h1>
+        </header>
+      </div>
+      </div>
+
+      <main>
+        <div class="row">
+          <!-- Left column for search -->
+          <aside id="search-for-city" class="col-md-4">
+            <div class="card bg-dark">
+              <div class="card-body text-white">
+                <h3>Search for a City:</h3>
+                <div class="form-group">
+                  <input id="search-text" type="text" name="city" class="form-control" placeholder="Los Angeles" />
+                </div>
+                <button id="submit" type="submit" class="btn btn-primary w-100">Search</button>
+                <hr class="d-block d-md-none" />
+                <!-- Search History Loaded from Local Storage -->
+                <div id="cityButtons">
+                  <button id="city-search" type="button" class="btn btn-secondary w-100" placeholder="New York">New York</button>
+                </div>
+              </div>
+            </div>
+          </aside>
+<!-- Right side -->
+<section id="weather-container" class="col-md-8">
+    
+    <div class="row">
+        <div class = "container">
+    
+        
+          <div class="col">
+            <div class="card">
+              <div class="card-body" id="main-weather">
+                <h2 class="card-title">City Name</h2>
+                <h3 class="text-muted card-subtitle mb-2">Date</h3>
+                <p class="card-text">Temp</p>
+                <p class="card-text">Wind</p>
+                <p class="card-text">Humidity</p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+      
+      <!-- Five-Day Forecast Cards -->
+      
+      <section id="weather-cards" class="container col-md-8 offset-md-1">
+          
+          <div class="col-2">
+              <div class="card">
+                <div class="card-body" id="weather-1">
+                <h4 class="card-title">City Name</h4>
+                <h6 class="text-muted card-subtitle mb-2">Date</h6>
+                <p class="card-text">Temp</p>
+                <p class="card-text">Wind</p>
+                <p class="card-text">Humidity</p>
+          </div>
+
+          <div class="col-2">
+              <div class="card">
+                  <div class="card-body" id="weather-2">
+                      <h4 class="card-title">City Name</h4>
+                      <h6 class="text-muted card-subtitle mb-2">Date</h6>
+                      <p class="card-text">Temp</p>
+                      <p class="card-text">Wind</p>
+                      <p class="card-text">Humidity</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body" id="weather-3">
+                        <h4 class="card-title">City Name</h4>
+                        <h6 class="text-muted card-subtitle mb-2">Date</h6>
+                        <p class="card-text">Temp</p>
+                        <p class="card-text">Wind</p>
+                        <p class="card-text">Humidity</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body" id="weather-4">
+                <h4 class="card-title">City Name</h4>
+                <h6 class="text-muted card-subtitle mb-2">Date</h6>
+                <p class="card-text">Temp</p>
+                <p class="card-text">Wind</p>
+                <p class="card-text">Humidity</p>
+            </div>
+      
+    </div>
+</div>
+    <div class="col">
+        <div class="card">
+            <div class="card-body" id="weather-5">
+                <h4 class="card-title">City Name</h4>
+                <h6 class="text-muted card-subtitle mb-2">Date</h6>
+                <p class="card-text">Temp</p>
+                <p class="card-text">Wind</p>
+                <p class="card-text">Humidity</p>
+            </div>
+        </div>
+   
+    </div>
+</div>
+</div>
+</section>
+</section>
+<!-- End Five-Day Forecast Cards -->
+</main>
+   
+  </body>
+</html>

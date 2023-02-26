@@ -1,0 +1,21 @@
+//weather cards
+<div class="card-body" id="weather-1">
+<h4 class="card-title">City Name</h4>
+<h6 class="text-muted card-subtitle mb-2">Date</h6>
+<p class="card-text">Temp</p>
+<p class="card-text">Wind</p>
+<p class="card-text">Humidity</p>
+
+//buttons from local Storage
+
+<!-- Search History Loaded from Local Storage -->
+// container id=cityButtons
+                <div id="cityButtons">
+                  <button
+                    id="city-search"
+                    type="button"
+                    class="btn btn-secondary w-100"
+                    placeholder="New York">
+                    New York
+                  </button>
+                </div>

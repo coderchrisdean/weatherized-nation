@@ -1,8 +1,28 @@
 // variables
+var cityButtonsContainer = document.getElementById("cityButtons"); // query selector for city buttons container
+var cityList = JSON.parse(localStorage.getItem("cities")) || []; // get cities from local storage or set to empty array
 var apiKey = "d8b2e3b11771f6cb21a582b88a348dd7"; // api key to get weather data
 var citySearch = document.getElementById("city-search"); // api key to get weather
 var url = "https://api.openweathermap.org/data/2.5/forecast?q="; // url to get weather data
 var searchHistory = localStorage.getItem("searchHistory") || "[]"; // add city to search history
+
+// function to get stored city data and render on page load
+function renderCityButtons() {
+ // iterate over city list and create buttons for each city
+  for (var i = 0; i < cityList.length; i++) {
+    let newCityButton = document.createElement("button");
+    // set button id and class
+    newCityButton.id = "city-search";
+    newCityButton.classList.add("btn", "btn-secondary", "w-100");
+    // set button text and placeholder attributes
+    newCityButton.innerText = cityList[i];
+    newCityButton.placeholder = cityList[i];
+    // append button to city buttons container
+    cityButtonsContainer.appendChild(newCityButton);
+  }
+}
+
+
 
 // function to get weather data
 function getWeather() {
