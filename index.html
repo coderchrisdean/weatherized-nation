@@ -9,19 +9,23 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- <link rel="stylesheet" href="./assets/css/style.css" /> -->
  
   </head>
-  <body>
-    <div class="container">
+  <body class="">
+    <div class="container bg-dark">
       <!-- Header Text -->
       <div class="row justify-content-center">
-        <header id="header" class="col text-center">
+        <!-- <div class="bg-dark">
+          <div class="text-white"> -->
+        <header id="header" class="col bg-dark text-center text-white">
           <h1>Weatherizer Weather Dashboard</h1>
         </header>
+          <!-- </div>
+        </div> -->
       </div>
 
-      <main>
+      <main class="bg-dark text-white">
         <div class="row">
           <!-- Left Column for Search -->
           <aside id="search-for-city" class="col-md-4">
@@ -63,44 +67,15 @@
                      
                       <!-- Weather will be rendered here -->
                    
-                  <!-- </div> -->
+                
                 </div>
               </div>
             </div>
 
             <!-- Five-Day Forecast Cards -->
-            <section id="weather-cards" class="container col-md-8 offset-md-1">
-              <div class="row">
-                <!-- Card 1 -->
-                <div class="col-2">
-                  <div class="card">
-                    <div class="card-body" id="weather-1"></div>
-                  </div>
-                </div>
-                <!-- Card 2 -->
-                <div class="col-2">
-                  <div class="card">
-                    <div class="card-body" id="weather-2"></div>
-                  </div>
-                </div>
-                <!-- Card 3 -->
-                <div class="col-2">
-                  <div class="card">
-                    <div class="card-body" id="weather-3"></div>
-                  </div>
-                </div>
-                <!-- Card 4 -->
-                <div class="col-2">
-                  <div class="card">
-                    <div class="card-body" id="weather-4"></div>
-                  </div>
-                </div>
-                <!-- Card 5 -->
-                <div class="col-2">
-                  <div class="card">
-                    <div class="card-body" id="weather-5"></div>
-                  </div>
-                </div>
+            <section class="container col-md-8 offset-md-1">
+              <div id = "weather-cards" class="row">
+                <!-- Cards will be rendered here -->
               </div>
             </section>
           </section>

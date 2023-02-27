@@ -13,5 +13,3 @@ const unixToDate = {
     }
   };
 
-  module.exports = unixToDate;
-  

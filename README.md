@@ -36,11 +36,11 @@ This project was created by Christopher Dean.  I can be reached at coderchrisdea
 
 ## GitHub Repository
 
-https://github.com/coderchrisdean/weatherizer/
+https://github.com/coderchrisdean/weatherized-nation
 
 ## Link to Deployed Application
 
-https://coderchrisdean.github.io/weatherizer/
+https://coderchrisdean.github.io/weatherized-nation/
 
 
 <!-- **Hint**: Using the 5 Day Weather Forecast API, you'll notice that you will need to pass in coordinates instead of just a city name. Using the OpenWeatherMap APIs, how could we retrieve geographical coordinates given a city name? -->
