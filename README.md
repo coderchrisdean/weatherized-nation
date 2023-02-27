@@ -28,7 +28,7 @@ None
 
 ## Screenshot
 
-![Weatherizer Screenshot](./assets/weatherizer-screenshot.png)
+![Weatherizer Screenshot](./assets/images/weatherizer-screenshot.pngweatherizer-screenshot.png)
 
 ## About
 

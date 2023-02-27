@@ -15,6 +15,12 @@ var citySearch = document.querySelector("#city"); // get city from input field
 // call function to render city buttons
 renderCityButtons();
 
+function renderPage() {
+  let lastCity = searchHistory[searchHistory.length - 1];
+  if (lastCity) {
+    getWeather(lastCity);
+  }
+}
 function renderCityButtons() {
   let cityButtonsContainer = document.getElementById("cityButtons"); // query selector for city buttons container
   let searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || []; // get cities from local storage or set to empty array
@@ -45,7 +51,7 @@ function getWeather(cityName) {
     .then(({ city, list }) => {
       const weatherData = []; // create an empty array to store weather data
 
-      for (let i = 0; i < list.length; i + 8) {
+      for (let i = 0; i < list.length; i+ 8) {
        
         const weather = list[i];
         const date = unixToDate(weather.dt);
@@ -171,12 +177,7 @@ searchButton.addEventListener("click", function () {
   localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
 });
 
-function renderPage() {
-  let lastCity = searchHistory[searchHistory.length - 1];
-  if (lastCity) {
-    getWeather(lastCity);
-  }
-}
+
 document.addEventListener("DOMContentLoaded", function () {
   renderPage();
 });
