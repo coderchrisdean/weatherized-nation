@@ -45,7 +45,7 @@ function getWeather(cityName) {
     .then(({ city, list }) => {
       const weatherData = []; // create an empty array to store weather data
 
-      for (let i = 0; i < list.length; i += 8) {
+      for (let i = 0; i < list.length; i + 8) {
        
         const weather = list[i];
         const date = unixToDate(weather.dt);
