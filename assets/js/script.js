@@ -51,7 +51,7 @@ function getWeather(cityName) {
     .then(({ city, list }) => {
       const weatherData = []; // create an empty array to store weather data
 
-      for (let i = 0; i < list.length; i+ 8) {
+      for (let i = 0; i < list.length; i+= 8) {
        
         const weather = list[i];
         const date = unixToDate(weather.dt);
@@ -94,8 +94,8 @@ function renderCards(data) {
   // create an array to store weather data for each day
   var newDataObject = [];
   // iterate through the data.list array and populate the new array
-  for (let i = 0; i < data.list.length; i++) {
-    var dayData = data.list[i * 8]; //api returns data every 3 hours, so we need to get every 8th item
+  for (let i = 0; i < data.length; i++) {
+    var dayData = data.list[i]; //api returns data every 3 hours, so we need to get every 8th item
     let date = unixToDate(dayData.dt);
     let day = getDayOfWeek(dayData.dt);
     let temp = dayData.main.temp; //get temperature
@@ -177,7 +177,3 @@ searchButton.addEventListener("click", function () {
   localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
 });
 
-
-document.addEventListener("DOMContentLoaded", function () {
-  renderPage();
-});
